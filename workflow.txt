@@ -1,0 +1,40 @@
+- First setup the env and install the requirements.txt module to your virtual env 
+- now activate that virtual environment and you can push the code on github 
+
+- make src folder having the files like below 
+    - __init__.py
+        - For making the src working as a package.
+    -tools.py
+        - Having tools like below 
+            - calculate mortgate affortibility : For supervisor Agent 
+                - This function will calculate the maximum affordable mortage and monthly
+                payment. it will take monthly_income interest_rate and loan_years as arg and will 
+                return a dict having max_loan_amount , max_monthly_payment and loan_term_years
+            - Calculate price per squrefoot : For transaction history Agent 
+                - This function will calculate the price per squrefoot for the property and this function 
+                will also return a dict having price_per_sqft and tier information with it 
+            - Calculate remaining lease : For property profile Agent
+                - it will calculate the remaining lease years for leashold properties it will take 
+                lease_start_year, lease_duration, current_year and will return a dict having the keys like 
+                remaining_years and status 
+    - prompts.py 
+        - Having the prompt for the below things
+            - supervisor prompt 
+            - Transaction history agent prompt 
+            - property profile agent prompt 
+    - nodes.py 
+        - we have to create agent here named below 
+            - supervisor_agent
+            - transaction_hisotry_agent
+            - property_profile_agent
+        - Now we have to create state and model 
+            - SupervisorDecision(model)
+            - SupervisorState
+        - Then make 4 node function 
+            - supervisor_conditional_node
+            - supervisor_command_node
+            - transaction_history_agent_node
+            - property_profile_agent_node
+
+- Outside of the src make a file name run_command_routing.py and having the code for graph creation and invoking
+that graph logic in it.
